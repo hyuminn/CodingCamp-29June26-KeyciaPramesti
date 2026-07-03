@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Greeting Widget -->
+  <section id="greeting-widget" aria-label="Greeting">
+    <p id="greeting-time">--:--:--</p>
+    <p id="greeting-date"></p>
+    <p id="greeting-text">Good morning</p>
+  </section>
+
+  <!-- Timer Widget -->
+  <section id="timer-widget" aria-label="Focus Timer">
+    <p id="timer-display">25:00</p>
+    <p id="timer-notification" hidden>Session complete!</p>
+    <div class="timer-controls">
+      <button id="timer-start">Start</button>
+      <button id="timer-stop" disabled>Stop</button>
+      <button id="timer-reset">Reset</button>
+    </div>
+  </section>
+
+  <!-- To-Do Widget -->
+  <section id="todo-widget" aria-label="To-Do List">
+    <form id="todo-form">
+      <input id="todo-input" type="text" maxlength="200" placeholder="Add a task…" autocomplete="off" />
+      <button type="submit">Add</button>
+      <span id="todo-error" role="alert" hidden></span>
+    </form>
+    <ul id="todo-list"></ul>
+  </section>
+
+  <!-- Links Widget -->
+  <section id="links-widget" aria-label="Quick Links">
+    <div id="links-container"></div>
+    <p id="links-empty" hidden>No quick links yet — add some in Settings.</p>
+  </section>
+
+  <!-- Settings Overlay -->
+  <div id="settings-overlay" role="dialog" aria-modal="true" aria-label="Settings" hidden>
+    <div id="settings-panel">
+      <button id="settings-close" aria-label="Close settings">✕</button>
+
+      <!-- Name -->
+      <label for="settings-name">Your Name</label>
+      <input id="settings-name" type="text" maxlength="50" />
+      <span id="settings-name-error" role="alert" hidden></span>
+      <button id="settings-name-save">Save Name</button>
+
+      <!-- Timer Duration -->
+      <label for="settings-duration">Focus Duration (minutes)</label>
+      <input id="settings-duration" type="number" min="1" max="120" step="1" />
+      <span id="settings-duration-error" role="alert" hidden></span>
+      <button id="settings-duration-save">Save Duration</button>
+
+      <!-- Color Mode -->
+      <button id="settings-theme-toggle">Switch to Dark Mode</button>
+
+      <!-- Accent Color -->
+      <label for="settings-accent">Accent Color</label>
+      <input id="settings-accent" type="color" value="#4f46e5" />
+
+      <!-- Quick Links -->
+      <label for="settings-link-label">Link Label</label>
+      <input id="settings-link-label" type="text" maxlength="30" />
+      <label for="settings-link-url">URL</label>
+      <input id="settings-link-url" type="url" maxlength="2048" />
+      <span id="settings-link-error" role="alert" hidden></span>
+      <button id="settings-link-add">Add Link</button>
+      <ul id="settings-links-list"></ul>
+    </div>
+  </div>
+
+  <!-- Settings Open Button -->
+  <button id="settings-open" aria-label="Open settings">⚙</button>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
